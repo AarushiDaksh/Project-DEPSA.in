@@ -1,0 +1,300 @@
+@import "tailwindcss";
+/*  --background: #e78960fc;*/
+
+:root {
+  --background: #da785bf6;
+  --foreground: #090909;
+  
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-depsa);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-depsa), Arial, Helvetica, sans-serif;
+}
+
+/* =========================================================
+   ANIMATED BACKGROUND
+*/ 
+@keyframes depsaBackground {
+  0% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: scale(1.08) translate3d(-18px, -10px, 0);
+  }
+
+  100% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+}
+
+.depsa-bg-image {
+  animation: depsaBackground 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+
+/* =========================================================
+   MAIN GRID
+========================================================= */
+
+@keyframes depsaGridMove {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: translate3d(-30px, -15px, 0);
+  }
+
+  50% {
+    transform: translate3d(-60px, -30px, 0);
+  }
+
+  75% {
+    transform: translate3d(-30px, -15px, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.depsa-grid {
+  background-image:
+    linear-gradient(
+      rgba(40, 30, 35, 0.18) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(40, 30, 35, 0.18) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  animation: depsaGridMove 8s ease-in-out infinite;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   FINE GRID
+========================================================= */
+
+@keyframes depsaFineGrid {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 12px 12px;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.depsa-grid-fine {
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,.45) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.45) 1px,
+      transparent 1px
+    );
+
+  background-size: 12px 12px;
+
+  animation: depsaFineGrid 5s linear infinite;
+}
+
+
+/* =========================================================
+   PURPLE ORB
+========================================================= */
+
+@keyframes depsaPurpleOrb {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: .25;
+  }
+
+  50% {
+    transform: translate3d(-80px, 45px, 0) scale(1.2);
+    opacity: .55;
+  }
+}
+
+.depsa-purple-orb {
+  animation: depsaPurpleOrb 7s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+
+/* =========================================================
+   ORANGE ORB
+========================================================= */
+
+@keyframes depsaOrangeOrb {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: .2;
+  }
+
+  50% {
+    transform: translate3d(70px, -40px, 0) scale(1.15);
+    opacity: .45;
+  }
+}
+
+.depsa-orange-orb {
+  animation: depsaOrangeOrb 9s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+
+/* =========================================================
+   SCAN LINE
+========================================================= */
+
+@keyframes depsaScan {
+  0% {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: .8;
+  }
+
+  50% {
+    opacity: .35;
+  }
+
+  90% {
+    opacity: .8;
+  }
+
+  100% {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+.depsa-scan {
+  animation: depsaScan 7s linear infinite;
+  box-shadow: 0 0 20px rgba(82,61,144,.25);
+}
+
+
+/* =========================================================
+   FLOATING NODES
+========================================================= */
+
+@keyframes depsaNode1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(35px, -25px);
+  }
+}
+
+@keyframes depsaNode2 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-30px, 30px);
+  }
+}
+
+@keyframes depsaNode3 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(25px, -20px);
+  }
+}
+
+.depsa-node-1 {
+  animation: depsaNode1 5s ease-in-out infinite;
+}
+
+.depsa-node-2 {
+  animation: depsaNode2 6s ease-in-out infinite;
+}
+
+.depsa-node-3 {
+  animation: depsaNode3 7s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   LOGIN CARD
+========================================================= */
+
+@keyframes depsaCard {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.depsa-card {
+  animation:
+    depsaCard
+    .9s
+    cubic-bezier(.16,1,.3,1)
+    both;
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .depsa-bg-image,
+  .depsa-grid,
+  .depsa-grid-fine,
+  .depsa-purple-orb,
+  .depsa-orange-orb,
+  .depsa-scan,
+  .depsa-node-1,
+  .depsa-node-2,
+  .depsa-node-3,
+  .depsa-card {
+    animation: none !important;
+  }
+}
